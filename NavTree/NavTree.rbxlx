@@ -40,26 +40,26 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>86.7719879</X>
-					<Y>58.4136505</Y>
-					<Z>31.7448864</Z>
-					<R00>0.111475855</R00>
-					<R01>-0.423121363</R01>
-					<R02>0.899189293</R02>
+					<X>45.590271</X>
+					<Y>261.473022</Y>
+					<Z>-6.30033255</Z>
+					<R00>-0.829093158</R00>
+					<R01>-0.552226365</R01>
+					<R02>0.0874673054</R02>
 					<R10>-0</R10>
-					<R11>0.904828966</R11>
-					<R12>0.42577517</R12>
-					<R20>-0.993767142</R20>
-					<R21>-0.0474636517</R21>
-					<R22>0.100866586</R22>
+					<R11>0.156440124</R11>
+					<R12>0.987687469</R12>
+					<R20>-0.559110403</R20>
+					<R21>0.818884909</R21>
+					<R22>-0.129703447</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<CoordinateFrame name="Focus">
-					<X>84.9736481</X>
-					<Y>57.5621185</Y>
-					<Z>31.5431576</Z>
+					<X>45.4153366</X>
+					<Y>259.49765</Y>
+					<Z>-6.04092598</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -512,7 +512,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 		<Item class="Folder" referent="RBXec6fa33a7e154d4d90ac0ce1f25ba98e">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">PathTree</string>
+				<string name="Name">NavTree</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 			<Item class="Folder" referent="RBX3859fc1d2bc341e1b6404cffd882ec82">
@@ -532,10 +532,18 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 -- VineyardVine
 -- Feb 06, 2020
 
+local GuiHandler = require(script.Parent:WaitForChild("GuiHandler"));
+
+wait(1)
+
+local ToolBar = plugin:CreateToolbar("NavMesh")
+local PluginButton = ToolBar:CreateButton("NavMesh", "Toggle NavMesh Plugin", "rbxassetid://4738562174")
+
+
 
 local WidgetInfo = DockWidgetPluginGuiInfo.new(
 	Enum.InitialDockState.Left,  -- Widget will be initialized in floating panel
-	false,   -- Widget will be initially enabled
+	true,   -- Widget will be initially enabled
 	false,  -- Don't override the previous enabled state
 	200,    -- Default width of the floating window
 	300,    -- Default height of the floating window
@@ -544,20 +552,15 @@ local WidgetInfo = DockWidgetPluginGuiInfo.new(
 );
 
 
-local testWidget = plugin:CreateDockWidgetPluginGui("TestWidget", WidgetInfo)
-testWidget.Title = "Test Widget"  -- Optional widget title
+local Widget = plugin:CreateDockWidgetPluginGui("NavMesh", WidgetInfo)
+Widget.Title = "NavMesh"  
  
-local testButton = Instance.new("TextButton")
-testButton.BorderSizePixel = 0
-testButton.TextSize = 20
-testButton.TextColor3 = Color3.new(1,0.2,0.4)
-testButton.AnchorPoint = Vector2.new(0.5,0.5)
-testButton.Size = UDim2.new(1,0,1,0)
-testButton.Position = UDim2.new(0.5,0,0.5,0)
-testButton.SizeConstraint = Enum.SizeConstraint.RelativeYY
-testButton.Text = "Click Me"
-testButton.Parent = testWidget]]></ProtectedString>
-						<BinaryString name="Tags">G35ob3Rzd2FwIw==</BinaryString>
+PluginButton.Click:Connect(function()
+	Widget.Enabled = not Widget.Enabled
+end)
+
+GuiHandler.Build().Parent = Widget;]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 				<Item class="Folder" referent="RBX7effa927454d4c8fa312be3afd885b2e">
@@ -745,7 +748,7 @@ return CollapsibleTitledSectionClass]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">CustomTextButton</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{01906b16-d613-4be9-a018-8e7703cc1679}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- CustomTextButton.lua
@@ -1097,7 +1100,7 @@ return module]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">ImageButtonWithText</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{4d7ddd4b-d9d4-40d2-8c30-aee7bde79072}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- ImageButtonWithText.lua
@@ -1264,7 +1267,7 @@ return ImageButtonWithTextClass]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">LabeledCheckbox</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{83b0ffb4-2558-46ff-a168-67b88ee75f81}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- LabeledCheckbox.lua
@@ -1516,7 +1519,7 @@ return LabeledCheckboxClass]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">LabeledMultiChoice</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{b70d47a7-ec45-44af-b63d-4f68be282f46}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- LabeledMultiChoice.lua
@@ -1657,7 +1660,7 @@ return LabeledMultiChoiceClass]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">LabeledRadioButton</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{8496080b-8412-4b8e-be40-fb6d46f6ed2f}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- LabeledRadioButton.lua
@@ -1726,7 +1729,7 @@ return LabeledRadioButtonClass]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">LabeledSlider</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{777c08c8-9781-4041-beba-bb27ffba1aaf}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- LabeledSlider.lua
@@ -1857,7 +1860,7 @@ return LabeledSliderClass]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">LabeledTextInput</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{93aaec20-a164-47a8-ab97-0e710d35b985}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- LabeledTextInput.lua
@@ -6213,7 +6216,7 @@ return t
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">StatefulImageButton</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{cd3c3297-798b-47ef-9d10-4945b89a31b7}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- StatefulImageButton.lua
@@ -6317,7 +6320,7 @@ return StatefulImageButtonClass]]></ProtectedString>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">VerticallyScalingListFrame</string>
-							<string name="ScriptGuid"></string>
+							<string name="ScriptGuid">{1e213175-095e-4bba-b5bb-34de769e11ea}</string>
 							<ProtectedString name="Source"><![CDATA[----------------------------------------
 --
 -- VerticallyScalingListFrame
@@ -6394,6 +6397,59 @@ return VerticallyScalingListFrameClass]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
+				</Item>
+				<Item class="ModuleScript" referent="RBX72d6b2f48eab4e0fb99edbf2b687bbf3">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">GuiHandler</string>
+						<string name="ScriptGuid">{e9da793e-8086-4bc8-a576-975f2391f64a}</string>
+						<ProtectedString name="Source"><![CDATA[
+
+
+local StudioWidgets = script.Parent:WaitForChild("StudioWidgets");
+
+local VerticallyScalingListFrame = require(StudioWidgets.VerticallyScalingListFrame);
+local CollapsibleTitledSection = require(StudioWidgets.CollapsibleTitledSection);
+
+
+local GuiHandler = {};
+
+GuiHandler.__index = GuiHandler;
+
+function GuiHandler:Build()
+	local MainFrame = VerticallyScalingListFrame.new("MainFrame");
+	
+	
+	--- TOP DOWN VIEW 
+		local TopView = CollapsibleTitledSection.new(
+			"TopDownView",
+			"Preview",
+			true,
+			false,
+			false
+		);
+		local Viewport do
+			Viewport = Instance.new("ViewportFrame");
+			Viewport.BackgroundTransparency = .5;
+			Viewport.Size = UDim2.new(1,0,1,0);
+			
+			local AspectRatio = Instance.new("UIAspectRatioConstraint");
+			AspectRatio.AspectRatio = .5;
+			AspectRatio.DominantAxis = Enum.DominantAxis.Width
+		end
+		Viewport.Parent = TopView:GetContentsFrame();
+	MainFrame:AddChild(Viewport);
+	---
+	
+	
+	MainFrame:AddBottomPadding();
+	return MainFrame:GetFrame();
+end;
+
+return GuiHandler;]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
 				</Item>
 			</Item>
 		</Item>
